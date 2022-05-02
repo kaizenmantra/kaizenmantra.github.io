@@ -1,0 +1,382 @@
+<!doctype html>
+<html amp>
+
+<!-- Mirrored from www.kaizenmantra.net/blog/2018/11/28/business-models-of-self-driving-cars-part-1?format=amp by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 02 May 2022 07:21:27 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <title>Business models of Self-driving cars - Part 1</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+  <link rel="canonical" href="business-models-of-self-driving-cars-part-1.html">
+  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
+  <style amp-custom>/* @group type scale */
+
+body {
+  font-size: 1em;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+p, ul, ol, blockquote {
+  margin-top: 1.45em;
+  margin-bottom: 1.45em;
+}
+
+blockquote {
+  font-style: italic;
+  color: #888;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 1.414em;
+  border-left: 1px solid #eee;
+}
+
+h1, h2, h3, h4 {
+  margin: 1.414em 0 0.5em;
+  font-weight: inherit;
+  line-height: 1.2;
+  color: #111;
+}
+
+h1 {
+  font-size: 2.074em;
+}
+
+h2 {
+  font-size: 1.728em;
+}
+
+h3 {
+  font-size: 1.44em;
+}
+
+h4 {
+  font-size: 1.2em;
+}
+
+blockquote,
+.amp-article-quote-block-source,
+.amp-article-original-source {
+  font-size: 0.833em;
+}
+
+.amp-article-image-caption p,
+.amp-article-video-caption p,
+.amp-article-audio-caption p,
+.amp-article-pubdate,
+.amp-article-author-name {
+  font-size: 0.694em;
+  letter-spacing: 0;
+}
+
+.tiny-font {
+  font-size: 0.579em;
+}
+
+/* @group end */
+
+/* @group general */
+
+body {
+  background: #f2f2f2;
+  font-family: "Avenir Next", Avenir, Roboto, "Segoe WP", Arial, sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.0125em;
+  line-height: 1.45;
+  color: #666;
+}
+
+.website {
+  width: 100vw;
+  max-width: 768px;
+  margin: 0 auto;
+  background: #fff;
+  position: relative;
+}
+
+.website-header {
+  background: #111;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 2vh 4vw;
+  box-sizing: border-box;
+  max-height: 12vh;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 0.833em;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #f7f7f7;
+}
+
+.site-title a {
+  color: #f7f7f7;
+  text-decoration: none;
+}
+
+.amp-view-original {
+  font-size: 0.579em;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: right;
+  white-space: nowrap;
+  color: #666;
+}
+
+.amp-view-original a {
+  color: #666;
+  text-decoration: none;
+}
+
+/* @group end */
+
+/* @group amp article */
+
+.amp-article-content {
+  padding-bottom: 4vh;
+  box-sizing: border-box;
+}
+
+.amp-article-main-image {
+  max-width: 100%;
+}
+
+.amp-article-header {
+  margin-top: 4vh;
+}
+
+.amp-article-header,
+.amp-article-footer,
+.amp-article-html-block,
+.amp-article-markdown-block,
+.amp-article-image-caption,
+.amp-article-video-caption,
+.amp-article-quote-block,
+.amp-article-audio-block,
+.amp-article-embed-block.twitter-tweet {
+  margin-left: 4vw;
+  margin-right: 4vw;
+}
+
+.amp-article-title {
+  letter-spacing: -0.0325em;
+}
+
+.amp-article-image-block,
+.amp-article-video-block {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.amp-article-pubdate,
+.amp-article-author-name,
+.amp-article-image-caption,
+.amp-article-video-caption,
+.amp-article-audio-caption,
+.amp-article-quote-block-source {
+  color: #999;
+}
+
+.amp-article-pubdate,
+.amp-article-author-name {
+  display: inline-block;
+  letter-spacing: 0.02em;
+}
+
+.amp-article-pubdate + .amp-article-author-name:before,
+.amp-article-audio-title + .amp-article-audio-author:before {
+  content: ' by ';
+}
+
+.amp-article-audio-title {
+  font-style: italic;
+}
+
+.amp-article-quote-block {
+  margin-top: 1.45em;
+  margin-bottom: 1.45em;
+}
+
+.amp-article-quote-block-text {
+  font-size: 1.2em;
+  font-style: italic;
+  line-height: 1.2;
+  color: #111;
+  margin: 0;
+  padding: 0;
+  border-left-width: 0px;
+}
+
+.amp-article-quote-block-source {
+  margin-top: 0.833em;
+  display: block;
+}
+
+.amp-article-audio-caption p {
+  margin-top: 0.5em;
+  display: block;
+}
+
+amp-img {
+  background-color: #f7f7f7;
+  max-width: 100%;
+}
+
+.amp-article-hr-block {
+  height: 1px;
+  border: none;
+  margin: 2.6em 0;
+  color: #eee;
+  background-color: #eee;
+}
+
+.amp-article-placeholder-block {
+  background-color: rgba(0, 0, 0, 0.02);
+  margin: 1.45em;
+  padding: 1.45em;
+  text-align: center;
+}
+
+/* @group end */
+</style>
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Article",
+      "headline": "Business models of Self-driving cars - Part 1",
+      "mainEntityOfPage": "http://www.kaizenmantra.net",
+      "description": "What business models will emerge out of the current race to develop autonomous vehicles. And what strategy will Tesla, Uber, Waymo, Toyota, Ford, GM, Volvo, and others go to market with?",
+      "url": "http://www.kaizenmantra.net/blog/2018/11/28/business-models-of-self-driving-cars-part-1",
+      "author": {
+        "@type": "Person",
+        "name": "Saurabh"
+      },
+      "publisher": {
+        "@type": "Organization",
+        
+        "name": "kaizenmantra"
+      },
+      
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1543386003667-XOXPL6CG86PMYLU7CNB7/GM_Cruise_AV.jpeg?format=750w",
+        "width": 1200,
+        "height": 800
+      },
+      
+      "datePublished": "2018-11-28",
+      "dateModified": "2018-11-28"
+    }
+  </script>
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  
+</head>
+<body>
+  <div id="page" class="website">
+
+    <header class="website-header">
+      <h1 class="site-title"><a href="../../../../index.html" target="_blank">kaizenmantra</a></h1>
+      <small class="amp-view-original"><a href="business-models-of-self-driving-cars-part-1.html" target="_blank">View Original</a></small>
+    </header>
+
+    <article id="content" class="amp-article-content">
+      
+        <amp-img
+          class="amp-article-main-image"
+          layout="responsive"
+          width="1200"
+          height="800"
+          src="https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1543386003667-XOXPL6CG86PMYLU7CNB7/GM_Cruise_AV.jpeg?format=500w"
+          srcset="https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1543386003667-XOXPL6CG86PMYLU7CNB7/GM_Cruise_AV.jpeg?format=2500w 2500w,
+          https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1543386003667-XOXPL6CG86PMYLU7CNB7/GM_Cruise_AV.jpeg?format=1500w 1500w,
+          https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1543386003667-XOXPL6CG86PMYLU7CNB7/GM_Cruise_AV.jpeg?format=1000w 1000w,
+          https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1543386003667-XOXPL6CG86PMYLU7CNB7/GM_Cruise_AV.jpeg?format=750w 750w,
+          https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1543386003667-XOXPL6CG86PMYLU7CNB7/GM_Cruise_AV.jpeg?format=500w 500w,
+          https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1543386003667-XOXPL6CG86PMYLU7CNB7/GM_Cruise_AV.jpeg?format=300w 300w,
+          https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1543386003667-XOXPL6CG86PMYLU7CNB7/GM_Cruise_AV.jpeg?format=100w 100w"
+          sizes="100vw">
+        </amp-img>
+      
+
+      <header class="amp-article-header">
+        <h1 class="amp-article-title">Business models of Self-driving cars - Part 1</h1>
+        <div class="amp-article-meta">
+          <time class="amp-article-pubdate" datetime="2018-11-28">
+            November 28, 2018
+          </time>
+          <small class="amp-article-author-name">Saurabh</small>
+        </div>
+      </header>
+
+      
+
+
+
+<div class="amp-article-html-block"><p>Before the 1920s, there were hundreds of automobile manufacturers in the USA that eventually consolidated to the big three - GM, Ford, and Chrysler. A similar evolution has occurred with iOS and Android exemplifying two different business models that dominate the world.</p>
+<p data-rte-preserve-empty="true"></p></div>
+
+
+
+
+<figure class="amp-article-image-block">
+  <amp-img layout="responsive"
+    width="1200"
+    height="800"
+    src="https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1543386287046-BXHGKOYOGEDTT8QDT5MO/GM_Cruise_AV.jpeg?format=500w"
+    srcset="https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1543386287046-BXHGKOYOGEDTT8QDT5MO/GM_Cruise_AV.jpeg?format=2500w 2500w,
+      https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1543386287046-BXHGKOYOGEDTT8QDT5MO/GM_Cruise_AV.jpeg?format=1500w 1500w,
+      https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1543386287046-BXHGKOYOGEDTT8QDT5MO/GM_Cruise_AV.jpeg?format=1000w 1000w,
+      https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1543386287046-BXHGKOYOGEDTT8QDT5MO/GM_Cruise_AV.jpeg?format=750w 750w,
+      https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1543386287046-BXHGKOYOGEDTT8QDT5MO/GM_Cruise_AV.jpeg?format=500w 500w,
+      https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1543386287046-BXHGKOYOGEDTT8QDT5MO/GM_Cruise_AV.jpeg?format=300w 300w,
+      https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1543386287046-BXHGKOYOGEDTT8QDT5MO/GM_Cruise_AV.jpeg?format=100w 100w">
+  </amp-img>
+  
+  	<figcaption class="amp-article-image-caption"><p>Image Credit: https://www.theverge.com/2018/1/12/16880978/gm-autonomous-car-2019-detroit-auto-show-2018</p></figcaption>
+  
+</figure>
+
+
+
+
+<div class="amp-article-html-block"><p><strong>What business models will emerge out of the current race to develop autonomous vehicles. And what strategy will Tesla, Uber, Waymo, Toyota, Ford, GM, Volvo, and others go to market with?</strong></p>
+<p>As a consumer, technologist and an avid speculator, the exciting possibilities of autonomous vehicles and how they will transform and upend the existing automobile industry models has piqued my interest on a wintry Sunday evening. So here goes...</p>
+<p><strong>Total vertical integration - The Apple model</strong></p>
+<p>In this strategy, the traditional automaker business model extends into developing autonomous technologies, supporting software and hardware (LIDAR, Sensors etc.) and of course, the actual car itself. This is all about bringing a cohesive autonomous experience that adds comparable offerings that can keep up with the new kids on the block.</p>
+<blockquote>
+ <p>This is a classic parity strategy against the emerging threats arising from innovation in the autonomous and electric cars esp. Tesla. Given the lack of interest in EVs in the past, it would seem that the gas engine giants are begrudgingly compelled to go this way.</p>
+</blockquote>
+<p>As Uber/Lyft/Zipcar etc. continue to erode the need for owning a car, business model innovation to extend into the sharing economy is needed. Short-term rentals such as GM&nbsp;<a href="https://www.mavendrive.com/#!/" target="_blank">Maven</a>&nbsp;and long-term 'car-as-a-service' to entice millennials and future consumers is likely.</p>
+<p>An all-inclusive subscription with transparent direct-to-customer pricing that includes auto-insurance, wireless internet access, all maintenance, and regular model upgrades are a possibility. Cell phone service providers are an interesting case study of this.</p>
+<p><strong>Vertically integrated automakers have the opportunity to exercise #Car-as-a-Service as an additional flanking strategy to offset other large automakers.</strong></p>
+<p>This strategy also offers unprecedented opportunities for old dogs to bring innovation with in-car digital services and e-Commerce. Most of this will probably occur through acquiring and integrating interesting start-up offerings that can utilize all the free time that the rider now has.</p>
+<blockquote>
+ <p>The biggest challenge for this strategy is around the internal organizational change to switch from classic transactional-one-time product sell to a deeper relationship and subscription-based customer experience, across all channels and interaction points.</p>
+</blockquote>
+<p>In addition, the shift from a mostly engineering-centric mindset to building a fully integrated digital customer experience that is seamless between in-dash, mobile phones, wearables, service centers and elsewhere will require deeper consumer product design skills, the kind that we see in the game, mobile app and consumer electronic designers.</p>
+<p>As automakers cross the chasm from Detroit to Silicon Valley, the operational challenge around building great consumer-centric software development capabilities that work well with vehicle firmware, hardware/sensors as well as the enterprise backends will also be non-trivial.</p>
+<p>We are used to of much more transparency than the current dealership buying experience offers. Unless this channel transforms into a more open, relationship-based customer-centric extension of the automakers, it may just be an overhead and an impediment in the new direct to the consumer model of Tesla.</p>
+<p>Summary: This business model allows the auto giants to offer a highly curated end-user experience if they can learn, partner, copy and innovate from the usual suspects of consumer technology and experience mavens such as Apple, Amazon, American Express, Starbucks, Netflix, PlayStation and of course, Tesla.</p>
+<p>To be continued in part 2...</p></div>
+
+
+      <footer class="amp-article-footer">
+        <p class="amp-article-original-source">
+          Discover more from <a href="../../../../blog.html" target="_blank"><em>kaizenmantra</em></a>
+        </p>
+      </footer>
+
+    </article>
+  </div>
+</body>
+
+<!-- Mirrored from www.kaizenmantra.net/blog/2018/11/28/business-models-of-self-driving-cars-part-1?format=amp by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 02 May 2022 07:21:27 GMT -->
+</html>

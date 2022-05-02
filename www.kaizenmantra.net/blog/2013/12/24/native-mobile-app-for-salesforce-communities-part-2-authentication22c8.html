@@ -1,0 +1,447 @@
+<!doctype html>
+<html amp>
+
+<!-- Mirrored from www.kaizenmantra.net/blog/2013/12/24/native-mobile-app-for-salesforce-communities-part-2-authentication?format=amp by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 02 May 2022 07:22:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <title>Native mobile app for Salesforce Communities - Part 2 (Authentication)</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+  <link rel="canonical" href="native-mobile-app-for-salesforce-communities-part-2-authentication.html">
+  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
+  <style amp-custom>/* @group type scale */
+
+body {
+  font-size: 1em;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+p, ul, ol, blockquote {
+  margin-top: 1.45em;
+  margin-bottom: 1.45em;
+}
+
+blockquote {
+  font-style: italic;
+  color: #888;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 1.414em;
+  border-left: 1px solid #eee;
+}
+
+h1, h2, h3, h4 {
+  margin: 1.414em 0 0.5em;
+  font-weight: inherit;
+  line-height: 1.2;
+  color: #111;
+}
+
+h1 {
+  font-size: 2.074em;
+}
+
+h2 {
+  font-size: 1.728em;
+}
+
+h3 {
+  font-size: 1.44em;
+}
+
+h4 {
+  font-size: 1.2em;
+}
+
+blockquote,
+.amp-article-quote-block-source,
+.amp-article-original-source {
+  font-size: 0.833em;
+}
+
+.amp-article-image-caption p,
+.amp-article-video-caption p,
+.amp-article-audio-caption p,
+.amp-article-pubdate,
+.amp-article-author-name {
+  font-size: 0.694em;
+  letter-spacing: 0;
+}
+
+.tiny-font {
+  font-size: 0.579em;
+}
+
+/* @group end */
+
+/* @group general */
+
+body {
+  background: #f2f2f2;
+  font-family: "Avenir Next", Avenir, Roboto, "Segoe WP", Arial, sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.0125em;
+  line-height: 1.45;
+  color: #666;
+}
+
+.website {
+  width: 100vw;
+  max-width: 768px;
+  margin: 0 auto;
+  background: #fff;
+  position: relative;
+}
+
+.website-header {
+  background: #111;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 2vh 4vw;
+  box-sizing: border-box;
+  max-height: 12vh;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 0.833em;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #f7f7f7;
+}
+
+.site-title a {
+  color: #f7f7f7;
+  text-decoration: none;
+}
+
+.amp-view-original {
+  font-size: 0.579em;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: right;
+  white-space: nowrap;
+  color: #666;
+}
+
+.amp-view-original a {
+  color: #666;
+  text-decoration: none;
+}
+
+/* @group end */
+
+/* @group amp article */
+
+.amp-article-content {
+  padding-bottom: 4vh;
+  box-sizing: border-box;
+}
+
+.amp-article-main-image {
+  max-width: 100%;
+}
+
+.amp-article-header {
+  margin-top: 4vh;
+}
+
+.amp-article-header,
+.amp-article-footer,
+.amp-article-html-block,
+.amp-article-markdown-block,
+.amp-article-image-caption,
+.amp-article-video-caption,
+.amp-article-quote-block,
+.amp-article-audio-block,
+.amp-article-embed-block.twitter-tweet {
+  margin-left: 4vw;
+  margin-right: 4vw;
+}
+
+.amp-article-title {
+  letter-spacing: -0.0325em;
+}
+
+.amp-article-image-block,
+.amp-article-video-block {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.amp-article-pubdate,
+.amp-article-author-name,
+.amp-article-image-caption,
+.amp-article-video-caption,
+.amp-article-audio-caption,
+.amp-article-quote-block-source {
+  color: #999;
+}
+
+.amp-article-pubdate,
+.amp-article-author-name {
+  display: inline-block;
+  letter-spacing: 0.02em;
+}
+
+.amp-article-pubdate + .amp-article-author-name:before,
+.amp-article-audio-title + .amp-article-audio-author:before {
+  content: ' by ';
+}
+
+.amp-article-audio-title {
+  font-style: italic;
+}
+
+.amp-article-quote-block {
+  margin-top: 1.45em;
+  margin-bottom: 1.45em;
+}
+
+.amp-article-quote-block-text {
+  font-size: 1.2em;
+  font-style: italic;
+  line-height: 1.2;
+  color: #111;
+  margin: 0;
+  padding: 0;
+  border-left-width: 0px;
+}
+
+.amp-article-quote-block-source {
+  margin-top: 0.833em;
+  display: block;
+}
+
+.amp-article-audio-caption p {
+  margin-top: 0.5em;
+  display: block;
+}
+
+amp-img {
+  background-color: #f7f7f7;
+  max-width: 100%;
+}
+
+.amp-article-hr-block {
+  height: 1px;
+  border: none;
+  margin: 2.6em 0;
+  color: #eee;
+  background-color: #eee;
+}
+
+.amp-article-placeholder-block {
+  background-color: rgba(0, 0, 0, 0.02);
+  margin: 1.45em;
+  padding: 1.45em;
+  text-align: center;
+}
+
+/* @group end */
+</style>
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Article",
+      "headline": "Native mobile app for Salesforce Communities - Part 2 (Authentication)",
+      "mainEntityOfPage": "http://www.kaizenmantra.net",
+      "description": "After an overview in&nbsp;Part 1, we now dive into the nuts and bolts of&nbsp;Authenticating a native mobile app with Salesforce Communities, technical architecture and look at some code for a \"how to\" with Titanium Appcelerator.",
+      "url": "http://www.kaizenmantra.net/blog/2013/12/24/native-mobile-app-for-salesforce-communities-part-2-authentication",
+      "author": {
+        "@type": "Person",
+        "name": "Saurabh"
+      },
+      "publisher": {
+        "@type": "Organization",
+        
+        "name": "kaizenmantra"
+      },
+      
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1389251467589-RNKHH4V99PJJPFOY5PZL/Mobile+Communities+Login+URL.png?format=750w",
+        "width": 548,
+        "height": 411
+      },
+      
+      "datePublished": "2014-01-09",
+      "dateModified": "2014-06-01"
+    }
+  </script>
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  
+</head>
+<body>
+  <div id="page" class="website">
+
+    <header class="website-header">
+      <h1 class="site-title"><a href="../../../../index.html" target="_blank">kaizenmantra</a></h1>
+      <small class="amp-view-original"><a href="native-mobile-app-for-salesforce-communities-part-2-authentication.html" target="_blank">View Original</a></small>
+    </header>
+
+    <article id="content" class="amp-article-content">
+      
+        <amp-img
+          class="amp-article-main-image"
+          layout="responsive"
+          width="548"
+          height="411"
+          src="https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1389251467589-RNKHH4V99PJJPFOY5PZL/Mobile+Communities+Login+URL.png?format=500w"
+          srcset="https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1389251467589-RNKHH4V99PJJPFOY5PZL/Mobile+Communities+Login+URL.png?format=2500w 2500w,
+          https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1389251467589-RNKHH4V99PJJPFOY5PZL/Mobile+Communities+Login+URL.png?format=1500w 1500w,
+          https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1389251467589-RNKHH4V99PJJPFOY5PZL/Mobile+Communities+Login+URL.png?format=1000w 1000w,
+          https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1389251467589-RNKHH4V99PJJPFOY5PZL/Mobile+Communities+Login+URL.png?format=750w 750w,
+          https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1389251467589-RNKHH4V99PJJPFOY5PZL/Mobile+Communities+Login+URL.png?format=500w 500w,
+          https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1389251467589-RNKHH4V99PJJPFOY5PZL/Mobile+Communities+Login+URL.png?format=300w 300w,
+          https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1389251467589-RNKHH4V99PJJPFOY5PZL/Mobile+Communities+Login+URL.png?format=100w 100w"
+          sizes="100vw">
+        </amp-img>
+      
+
+      <header class="amp-article-header">
+        <h1 class="amp-article-title">Native mobile app for Salesforce Communities - Part 2 (Authentication)</h1>
+        <div class="amp-article-meta">
+          <time class="amp-article-pubdate" datetime="2014-01-09">
+            January  9, 2014
+          </time>
+          <small class="amp-article-author-name">Saurabh</small>
+        </div>
+      </header>
+
+      
+
+
+
+<div class="amp-article-html-block"><blockquote>
+ <p>Gist: After an overview in&nbsp;<a href="http://bit.ly/K7bRIg">Part 1</a>, we now dive into the nuts and bolts of&nbsp;Authenticating a native mobile app with Salesforce Communities, technical architecture and look at some code for a &quot;how to&quot; with Titanium Appcelerator.</p>
+</blockquote>
+<p>Now that we are ready to build our native mobile application, there are three key technical areas that the majority of our work will focus on:</p>
+<ul>
+ <li>Authenticate and Authorize (via OAuth)</li>
+ <li>Salesforce Integration (via REST API)</li>
+ <li>Mobile UX / App (using Appcelerator)</li>
+</ul>
+<p>Prerequisites:</p>
+<ol>
+ <li>A published Communities instance with a working Social Sign-on authentication setup (<a target="_blank" href="http://bit.ly/18M1Iwi">Ref.</a>)</li>
+ <li>A machine with Titanium Studio installed and set up with iOS and Android emulator (Code here is for iOS)</li>
+ <li>Reasonable understanding of web programming, JavaScript and Salesforce REST API</li>
+</ol>
+<p><strong>Authenticate and Authorize (OAuth)</strong></p>
+<p><span>A Platform user OAuth login where a user id and password is sent to Salesforce looks like this..</span><span>.</span></p>
+<pre>https: //login.salesforce.com/services/oauth2/token?grant_type=password&amp;client_id=your_app_id&amp;client_secret=your_app_secret&amp;username=your_username&amp;password=your_password</pre> 
+<p>A Communities user OAuth login uses an instance specific URL instead of a generic 'login.salesforce.com' to ensure that the login request is sent to your specific community and ensures that a branded login page can be displayed.</p>
+<pre>https://acme.force.com/customers/services/oauth2/authorize?response_type=token&amp;client_id=your_app_id&amp;redirect_uri=your_redirect_uri</pre> 
+<p>Note that this call is different because Communities only supports a&nbsp;<a href="http://bit.ly/1czzaHz" target="_blank" data-cke-saved-href="http://bit.ly/1czzaHz">'User-Agent OAuth'</a>&nbsp;authentication flow. This means that a Salesforce UI conducts the entire sign-on process and user credentials are never handled by the mobile app directly. For more details, there is an excellent read by Tom Gersic&nbsp;<a href="http://bit.ly/1d9lZeJ" target="_blank" data-cke-saved-href="http://bit.ly/1d9lZeJ">here</a>.</p></div>
+
+
+
+
+<figure class="amp-article-image-block">
+  <amp-img layout="responsive"
+    width="2095"
+    height="1239"
+    src="https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1388025486226-HH65W3EE4UN339I4FU1P/Social_SSO_Salesforce_Communities.png?format=500w"
+    srcset="https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1388025486226-HH65W3EE4UN339I4FU1P/Social_SSO_Salesforce_Communities.png?format=2500w 2500w,
+      https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1388025486226-HH65W3EE4UN339I4FU1P/Social_SSO_Salesforce_Communities.png?format=1500w 1500w,
+      https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1388025486226-HH65W3EE4UN339I4FU1P/Social_SSO_Salesforce_Communities.png?format=1000w 1000w,
+      https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1388025486226-HH65W3EE4UN339I4FU1P/Social_SSO_Salesforce_Communities.png?format=750w 750w,
+      https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1388025486226-HH65W3EE4UN339I4FU1P/Social_SSO_Salesforce_Communities.png?format=500w 500w,
+      https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1388025486226-HH65W3EE4UN339I4FU1P/Social_SSO_Salesforce_Communities.png?format=300w 300w,
+      https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1388025486226-HH65W3EE4UN339I4FU1P/Social_SSO_Salesforce_Communities.png?format=100w 100w">
+  </amp-img>
+  
+  	<figcaption class="amp-article-image-caption"><p>More details: <a target="_blank" href="http://bit.ly/1czzaHz"><span>Understanding the User-Agent OAuth Authentication Flow</span></a></p></figcaption>
+  
+</figure>
+
+
+
+
+<div class="amp-article-html-block"><p>Any integration with a Social Sign-on process such as Facebook or JanRain is orchestrated by Salesforce and all that configuration is handled on the Salesforce' Server side as shown above.</p> 
+<p>So, what does it For our mobile app, this means that our first screen will need to load a web view and redirect it to the Salesforce communities instance login page.</p></div>
+
+
+
+
+<figure class="amp-article-image-block">
+  <amp-img layout="responsive"
+    width="2187"
+    height="958"
+    src="https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1388029284104-84K8VUPBWKXDW107HOGR/Mobile+Communities+Login+URL.png?format=500w"
+    srcset="https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1388029284104-84K8VUPBWKXDW107HOGR/Mobile+Communities+Login+URL.png?format=2500w 2500w,
+      https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1388029284104-84K8VUPBWKXDW107HOGR/Mobile+Communities+Login+URL.png?format=1500w 1500w,
+      https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1388029284104-84K8VUPBWKXDW107HOGR/Mobile+Communities+Login+URL.png?format=1000w 1000w,
+      https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1388029284104-84K8VUPBWKXDW107HOGR/Mobile+Communities+Login+URL.png?format=750w 750w,
+      https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1388029284104-84K8VUPBWKXDW107HOGR/Mobile+Communities+Login+URL.png?format=500w 500w,
+      https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1388029284104-84K8VUPBWKXDW107HOGR/Mobile+Communities+Login+URL.png?format=300w 300w,
+      https://images.squarespace-cdn.com/content/v1/52a60bc7e4b00aedfa1f1c97/1388029284104-84K8VUPBWKXDW107HOGR/Mobile+Communities+Login+URL.png?format=100w 100w">
+  </amp-img>
+  
+  	<figcaption class="amp-article-image-caption"><p>Communities Instance specific Login page</p></figcaption>
+  
+</figure>
+
+
+
+
+<div class="amp-article-html-block"><p id="yui_3_10_1_1_1389210352347_84751"><span>While doing this with Titanium alloy, we will first declare the webview. Here is how my index.xml (under Titanium project’s “View” folder) looks like.</span></p></div>
+
+
+
+
+<div class="amp-article-placeholder-block">
+  <a href="native-mobile-app-for-salesforce-communities-part-2-authentication.html">
+    <em>
+      See this content in the original post
+    </em>
+  </a>
+</div>
+
+
+
+
+<div class="amp-article-html-block"><p><span>In Titanium, index.xml serves as the entry point for the mobile app. By putting the code here, we ensure that the webview is the first UI this app loads (and that in turn, will load the Community specific login page).</span></p>
+<p>Once the authentication is successful, Salesforce will return a success URL that contains the Access and refresh token. We will parse out these tokens and use them for our REST API calls. Here is the sample code from the controller index.js file.</p></div>
+
+
+
+
+<div class="amp-article-placeholder-block">
+  <a href="native-mobile-app-for-salesforce-communities-part-2-authentication.html">
+    <em>
+      See this content in the original post
+    </em>
+  </a>
+</div>
+
+
+
+
+<div class="amp-article-html-block"><p>Typically, mobile apps would store these tokens in a durable storage so that the user only logs in once, and the next time they access this app, it can use the existing access token or get a new one using the refresh token, and seamlessly log them in background.</p>
+<blockquote>
+ <p>The app must appropriately secure / encrypt such information. Titanium supports local storage via db, properties and collections.</p>
+</blockquote>
+<p>Let's look at how we can build our native mobile UI with custom branding (<a href="http://bit.ly/1iKI70o">Part 3</a>) and use the Salesforce communities issued Access token to interact with its REST web services (Part 4), and offer our customers a differentiated mobile user experience.</p></div>
+
+
+      <footer class="amp-article-footer">
+        <p class="amp-article-original-source">
+          Discover more from <a href="../../../../blog.html" target="_blank"><em>kaizenmantra</em></a>
+        </p>
+      </footer>
+
+    </article>
+  </div>
+</body>
+
+<!-- Mirrored from www.kaizenmantra.net/blog/2013/12/24/native-mobile-app-for-salesforce-communities-part-2-authentication?format=amp by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 02 May 2022 07:22:24 GMT -->
+</html>
